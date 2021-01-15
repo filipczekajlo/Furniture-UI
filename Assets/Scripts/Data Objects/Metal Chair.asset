@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33de35aa5ba296e46994baf1323d4db6, type: 3}
+  m_Name: Metal Chair
+  m_EditorClassIdentifier: 
+  name: Metal Chair
+  designer: Eames
+  price: $1780
+  body: Probably the most iconic chair of twentieth century. Charles and Ray Eames
+    conceived and developed this chair in 1958 for the private residence of an art
+    collector in Indiana.
