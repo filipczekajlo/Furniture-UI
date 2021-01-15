@@ -24,6 +24,8 @@
 [Aa]ssets/Plugins*
 [Aa]ssets/ThirdParty*
 [Aa]ssets/Resources*
+[Aa]ssets/TextMesh Pro*
+[Ww]ebGl builds*
 
 # Visual Studio cache directory
 .vs/
