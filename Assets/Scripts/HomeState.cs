@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Linq;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -27,7 +24,7 @@ public class HomeState : State
         unmatchedElementsInGoal = GetUnmatchedFromGoal(StateManager.container, StateManager.container.Reference);
         StartCoroutine(MoveandDestroy(unmatchedElementsInStart, StateManager.container.Reference, moveDuration, ease));
         ChangeParent(StateManager.container, StateManager.container.Reference.transform.parent);
-        EnableAllElements(StateManager.container);
+        StartCoroutine(EnableAllElements(StateManager.container));
         StartCoroutine(FixPosition());
     }
 
@@ -36,8 +33,9 @@ public class HomeState : State
         yield return new WaitForSeconds(moveDuration);
         MoveElements(foundElements, 0,ease);
     }
-    private void EnableAllElements(Container container)
+    private IEnumerator EnableAllElements(Container container)
     {
+        yield return new WaitForSeconds(0.3f);
         foreach (var element in container.startElements)
         {
             element.GameObject.SetActive(true);

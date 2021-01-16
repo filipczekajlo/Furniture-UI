@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class Initializer : MonoBehaviour
 {
@@ -30,11 +26,4 @@ public class Initializer : MonoBehaviour
         homeState.transform.SetParent(viewCanvas.transform);
         homeState.transform.position = viewCanvas.transform.position;
     }
-
-    public void Init()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    
 }

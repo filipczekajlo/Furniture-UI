@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public abstract class State : MonoBehaviour
 {
@@ -23,17 +20,10 @@ public abstract class State : MonoBehaviour
     protected List<IMorphState> unmatchedElementsInStart = new List<IMorphState>();
     protected List<IMorphState> unmatchedElementsInGoal = new List<IMorphState>();
     protected Dictionary<IMorphState, IMorphState> pairedUnmatchedGoalElements = new Dictionary<IMorphState, IMorphState>();
-
-    
     public float distanceFromViewCanvas;
 
-    public virtual void Show()
-    {
-    }
-
-    public virtual void Hide()
-    {
-    }
+    public abstract void Show();
+    public abstract void Hide();
 
     protected static void ChangeParent(Container containerToAttach, Transform parent) 
     {
@@ -178,15 +168,6 @@ public abstract class State : MonoBehaviour
         }
     }
 
-    protected static IEnumerator DestroyAfter(List<IMorphState> elementsToDestroy, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        foreach (var element in elementsToDestroy)
-        {
-            Destroy(element.GameObject);
-        }
-    }
-    
     protected static IEnumerator DestroyAfter(Container container, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -217,18 +198,6 @@ public abstract class State : MonoBehaviour
         return null;
     }
 
-    public static IMorphState GetElement(GameObject gameObject, string name)
-    {
-        var elements = gameObject.GetComponentsInChildren<IMorphState>();
-        foreach (var element in elements)
-        {
-            if (element.Name == name)
-            {
-                return element;
-            }
-        }
-        return null;
-    }
     public static void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
